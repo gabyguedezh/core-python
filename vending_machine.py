@@ -14,7 +14,9 @@ def get_change(amount):
     #if the coins are less than or equal to the amount we need to return, 
     #just add them to the change
     for coin in [100, 50, 20, 10, 5, 2, 1]:
-        if coin <= amount:
+        #This was previously an if statement but changed to a while to account 
+        #occasions in which more than one coin of a denomination are needed
+        while coin <= amount:
             #we need to deduct the amount from the coin from the amount that we
             #sent in to avoid it calculating as change any coin of a lower 
             #denomination than the amount (in the case of a wanted change of 7 
@@ -46,5 +48,8 @@ test_are_equal(get_change(100), [100])
 #Let's pass our get_change function a value of 3 and expect a 2 and a 1 back
 test_are_equal(get_change(3), [2,1])
 test_are_equal(get_change(7), [5,2])
+
+#What happens if we need to give more than one coin of a particular denomination
+test_are_equal(get_change(9), [5,2,2])
 
 print("All tests pass!")
