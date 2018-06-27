@@ -1,19 +1,26 @@
 from byotest import *
 
+eur_coins = [100, 50, 20, 10, 5, 2, 1]
+usd_coins = [100, 50, 25, 10, 5, 1]
+
 #This function will apply if there's no change to be given
-def get_change(amount):
-    #If there's no change to give, no coins will be given back
-    if amount == 0:
-        return []
-    #What if we need to give coins back...
-    #For when one coin of a given denomination would match the change exactly...
-    if amount in [100, 50, 20, 10, 5, 2, 1]:
-        return [amount]
+def get_change(amount, coins=eur_coins):
+    #The eur_coins argument means that if we don't specify the type of coin,
+    #it will default to euros
+    #
+    #The if statements have been cut out after refactoring
+    # #If there's no change to give, no coins will be given back
+    # if amount == 0:
+    #     return []
+    # #What if we need to give coins back...
+    # #For when one coin of a given denomination would match the change exactly...
+    # if amount in coins:
+    #     return [amount]
     #If we need to give a 2 and a 1 to give 3 cents change
     change = []
     #if the coins are less than or equal to the amount we need to return, 
     #just add them to the change
-    for coin in [100, 50, 20, 10, 5, 2, 1]:
+    for coin in coins:
         #This was previously an if statement but changed to a while to account 
         #occasions in which more than one coin of a denomination are needed
         while coin <= amount:
@@ -51,5 +58,8 @@ test_are_equal(get_change(7), [5,2])
 
 #What happens if we need to give more than one coin of a particular denomination
 test_are_equal(get_change(9), [5,2,2])
+
+#We can add new functionalities, for example, how about usd coins?
+test_are_equal(get_change(35, usd_coins), [25,10])
 
 print("All tests pass!")
