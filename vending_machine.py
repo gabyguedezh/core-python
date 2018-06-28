@@ -13,7 +13,7 @@ eur_coins = {
     10: default_init_coins,
     20: default_init_coins,
     50: default_init_coins,
-    100: default_init_coins
+    100: 0
 }
 
 # for key, value in eur_coins.items():
@@ -22,7 +22,10 @@ eur_coins = {
 #     print("***")
 
 def get_highest_coin():
-    return max(key=eur_coins)
+    if max(key=eur_coins) == 0:
+        eur_coins.pop(max(key=eur_coins))
+    else:
+        return max(key=eur_coins)
 print(max(eur_coins))
 
 usd_coins = {
