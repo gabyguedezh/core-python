@@ -1,7 +1,29 @@
 from byotest import *
 
-eur_coins = [100, 50, 20, 10, 5, 2, 1]
-usd_coins = [100, 50, 25, 10, 5, 1]
+# eur_coins = [100, 50, 20, 10, 5, 2, 1]
+# usd_coins = [100, 50, 25, 10, 5, 1]
+#Challenge - Turn coins into dictionaries with 20 coins of each to start with
+
+default_init_coins = 20
+
+eur_coins = {
+    1: default_init_coins,
+    2: default_init_coins,
+    5: default_init_coins,
+    10: default_init_coins,
+    20: default_init_coins,
+    50: default_init_coins,
+    100: default_init_coins
+}
+
+usd_coins = {
+    1: default_init_coins,
+    5: default_init_coins,
+    10: default_init_coins,
+    25: default_init_coins,
+    55: default_init_coins,
+    100: default_init_coins
+}
 
 #This function will apply if there's no change to be given
 def get_change(amount, coins=eur_coins):
@@ -32,7 +54,6 @@ def get_change(amount, coins=eur_coins):
             change.append(coin)
             
     return change
-    
 
 #When no change is required, no coins will be given
 test_are_equal(get_change(0), [])
