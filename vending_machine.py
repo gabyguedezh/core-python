@@ -5,17 +5,27 @@ usd_coins = [100, 50, 25, 10, 5, 1]
 #Challenge - Turn coins into dictionaries with 20 coins of each to start with
 
 #Dictionary of coins - START
-eur_coins_till = {
-    "100" : 20,
-	"50" : 20,
-	"20" : 20,
-	"10" : 20,
-	"5" : 20,
-	"2" : 20,
-	"1" : 20   
-}
+eur_coins_till = [
+    "dict_100_eur": {"denomination": "100", "in_till": 20},
+    "dict_50_eur": {"denomination": "50", "in_till": 20},
+	"dict_20_eur": {"denomination": "20", "in_till": 20},
+	"dict_10_eur": {"denomination": "10", "in_till": 20},
+	"dict_5_eur": {"denomination": "5", "in_till": 20},
+	"dict_2_eur": {"denomination": "2", "in_till": 20},
+	"dict_1_eur": {"denomination": "1", "in_till": 20},
+]
+
+usd_coins_till = [
+    "dict_100_usd": {"denomination": "100", "in_till": 20},
+    "dict_50_usd": {"denomination": "50", "in_till": 20},
+	"dict_25_usd": {"denomination": "25", "in_till": 20},
+	"dict_10_eur": {"denomination": "10", "in_till": 20},
+	"dict_5_eur": {"denomination": "5", "in_till": 20},
+	"dict_1_eur": {"denomination": "1", "in_till": 20},
+]
 #Dictionary of coins - END
 print(eur_coins_till)
+print(usd_coins_till)
 
 #This function will apply if there's no change to be given
 def get_change(amount, coins=eur_coins):
