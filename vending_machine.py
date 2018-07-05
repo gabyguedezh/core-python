@@ -1,41 +1,21 @@
 from byotest import *
 
-# eur_coins = [100, 50, 20, 10, 5, 2, 1]
-# usd_coins = [100, 50, 25, 10, 5, 1]
+eur_coins = [100, 50, 20, 10, 5, 2, 1]
+usd_coins = [100, 50, 25, 10, 5, 1]
 #Challenge - Turn coins into dictionaries with 20 coins of each to start with
 
-default_init_coins = 20
-
-eur_coins = {
-    1: default_init_coins,
-    2: default_init_coins,
-    5: default_init_coins,
-    10: default_init_coins,
-    20: default_init_coins,
-    50: default_init_coins,
-    100: 0
+#Dictionary of coins - START
+eur_coins_till = {
+    "100" : 20,
+	"50" : 20,
+	"20" : 20,
+	"10" : 20,
+	"5" : 20,
+	"2" : 20,
+	"1" : 20   
 }
-
-# for key, value in eur_coins.items():
-#     print(key)
-#     print(value)
-#     print("***")
-
-def get_highest_coin():
-    if max(key=eur_coins) == 0:
-        eur_coins.pop(max(key=eur_coins))
-    else:
-        return max(key=eur_coins)
-print(max(eur_coins))
-
-usd_coins = {
-    1: default_init_coins,
-    5: default_init_coins,
-    10: default_init_coins,
-    25: default_init_coins,
-    50: default_init_coins,
-    100: default_init_coins
-}
+#Dictionary of coins - END
+print(eur_coins_till)
 
 #This function will apply if there's no change to be given
 def get_change(amount, coins=eur_coins):
